@@ -1,0 +1,22 @@
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+</head>
+
+<body></body>
+
+<template name="layout">
+    {{#if $.Session.get '__config'}}
+        {{> au_wizzard}}
+    {{/if}}
+
+    {{#if isInRole 'admin'}}
+      {{> cmsinn_controls_left}}
+    {{/if}}
+
+    {{> yield}}
+</template>

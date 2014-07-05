@@ -1,0 +1,11 @@
+{
+  "name": "au-ui-coming-soon-mini",
+  "description": "Template for coming-soon project based on bootstrap 3 and with integrated CmsInn",
+  "homepage": "https://github.com/SteelzZ/au-ui-coming-soon-mini",
+  "author": "Tomas Bartkus <to.bartkus@gmail.com> (http://codetemple.blogspot.com)",
+  "version": "0.0.1",
+  "git": "https://github.com/SteelzZ/au-ui-coming-soon-mini.git",
+  "packages": {
+    "au-cmsinn": {}
+  }
+}

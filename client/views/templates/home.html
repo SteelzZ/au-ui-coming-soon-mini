@@ -1,0 +1,69 @@
+<template name="home">
+    <div class="container-full">
+        <div class="row">
+            <div class="col-lg-12 text-center v-center">
+                <h1 data-au-nav="brand" data-au-label="headline">{{c 'headline'}}</h1>
+                <p class="lead" data-au-label="sub_headline">{{c 'sub_headline'}}</p>
+                <br/><br/><br/>
+                {{#if $.Session.equals 'subscribed' true}}
+                    <div class="subscribe">
+                        <h5 class="info-text" data-au-label="subscribed">{{c 'subscribed'}}</h5>
+                    </div>
+                {{else}}
+                    <form class="col-lg-12">
+                        <h5 class="info-text" data-au-label="email_invitation">{{c 'email_invitation'}}</h5>
+                        <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
+                            <input id="subscriber-email" class="form-control input-lg" placeholder="{{c 'your_email_here'}}" data-au-label="your_email_here" type="text">
+                            <span class="input-group-btn">
+                                <button id="subscribe" class="btn btn-lg btn-primary" type="button" data-au-label="notify_me">{{c 'notify_me'}}</button>
+                            </span>
+                        </div>
+                    </form>
+                {{/if}}
+                
+            </div>
+        </div> <!-- /row -->
+
+        <div class="row">
+            <div class="col-lg-12 text-center v-center" style="font-size:39pt;">
+                <a data-au-nav="share_facebook" href="{{nav 'share_facebook' 'href'}}">
+                    <i class="fa fa-facebook-square"></i>
+                </a>
+                <a data-au-nav="share_twitter" href="{{nav 'share_twitter' 'href'}}">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a data-au-nav="share_email" href="{{nav 'share_email' 'href'}}">
+                    <i class="fa fa-envelope-o"></i>
+                </a>
+            </div>
+        </div>
+        <br/><br/><br/><br/><br/>
+    </div> <!-- /container full -->
+    <div class="container">
+        <hr/>
+        <div class="row" data-au-record="descriptions">
+            {{#with recordByPlace '' 'descriptions'}}
+                {{#each sorted children _id}}
+                    {{#with this}}
+                        <div class="col-md-4" data-au-sort-order="{{_id}}" data-au-deletable="{{_id}}">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 data-au-label="{{_id}}[title]">{{c '[title]' _id}}</h3>
+                                </div>
+                                <div class="panel-body" data-au-label="{{_id}}[description]" data-type="wysihtml5">{{{c '[description]' _id}}}</div>
+                            </div>
+                        </div>
+                    {{/with}}
+                {{/each}}
+            {{/with}}
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <br/><br/>
+                <p class="pull-right"><a data-au-nav="author" href="{{nav 'author' 'href'}}" data-au-label="author_title">{{c 'author_title'}}</a> &nbsp; <span data-au-label="copyright">{{c 'copyright'}}</span></p>
+                <br/><br/>
+            </div>
+        </div>
+    </div>
+</template>
